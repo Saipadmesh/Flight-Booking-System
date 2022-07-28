@@ -104,9 +104,10 @@ font-family: 'Oswald', sans-serif;
 
 .rating > label {
   position: relative;
-    width: 1em;
-    font-size: 6vw;
-    cursor: pointer;
+  width: 1em;
+  font-size: 6vw;
+  cursor: pointer;
+  color: #ffda6a;
 }
 .rating > label::before{ 
   content: "\2605";
@@ -116,13 +117,15 @@ font-family: 'Oswald', sans-serif;
 .rating > label:hover:before,
 .rating > label:hover ~ label:before {
   opacity: 1 !important;
+  color:rgb(255, 183, 0);
 }
 
 .rating > input:checked ~ label:before{
   opacity:1;
+  color: rgb(255, 183, 0)
 }
 
-.rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+.rating:hover > input:checked ~ label:before{ opacity: 0.8; color: rgb(255, 183, 0);}
 
 h1, p{ 
     text-align: center;
