@@ -140,3 +140,8 @@ p{ font-size: 1.2rem;}
   h1{font-size: 14px;}
   p{font-size: 12px;}
 }
+
+.carousel_img{
+  height: 50vh;
+  object-fit: cover;
+}
