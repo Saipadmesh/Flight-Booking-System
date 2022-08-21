@@ -9,10 +9,10 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title>Sign Up</title>
+    <title>Search Flights</title>
   </head>
   <body>
-    <div style="height: 120vh">
+    <div style="height: 100vh">
       <div class="container">
         <div class="row" style="height: 100%; z-index: 1">
           <div class="col-lg-3"></div>
@@ -33,25 +33,24 @@
                   class="newTitle1"
                   style="text-align: center; margin-top: 2%"
                 >
-                  Welcome!
+                  Search Flights
                 </div>
                 <div
-                  class="subheading"
-                  style="text-align: center; font-weight: 300"
+                  style="text-align: center; font-size: 24; font-weight: 300"
                 >
-                  Enter the required details
+                  Pray it fits your budget
                 </div>
               </hgroup>
-              <form autocomplete="off" action="index.html">
+              <form autocomplete="off" action="list_flights.html">
                 <div class="d-flex flex-column">
                   <div class="form-group row" style="margin-top: 15%">
                     <div class="col-10 mx-auto">
                       <input
-                        type="email"
+                        type="text"
                         class="form-control"
-                        id="email"
+                        id="from"
                         aria-describedby="emailHelp"
-                        placeholder="Email Address"
+                        placeholder="From"
                         required
                       />
                     </div>
@@ -60,10 +59,11 @@
                   <div class="form-group row" style="margin-top: 3%">
                     <div class="col-10 mx-auto">
                       <input
+                        type="text"
                         class="form-control"
-                        id="name"
+                        id="to"
                         aria-describedby="emailHelp"
-                        placeholder="Full Name"
+                        placeholder="To"
                         required
                       />
                     </div>
@@ -72,23 +72,10 @@
                   <div class="form-group row" style="margin-top: 3%">
                     <div class="col-10 mx-auto">
                       <input
-                        type="password"
-                        class="form-control"
-                        id="password"
-                        aria-describedby="emailHelp"
-                        placeholder="Password"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row" style="margin-top: 3%">
-                    <div class="col-10 mx-auto">
-                      <input
-                        id="dob"
+                        id="dot"
                         class="form-control"
                         type="date"
-                        placeholder="DOB"
+                        placeholder="Travel date"
                         required
                       />
                     </div>
@@ -97,10 +84,10 @@
                   <div class="form-group row" style="margin-top: 3%">
                     <div class="col-10 mx-auto">
                       <input
+                        type="number"
                         class="form-control"
-                        id="city"
-                        aria-describedby="emailHelp"
-                        placeholder="City"
+                        id="passengers"
+                        placeholder="Number of Passengers"
                         required
                       />
                     </div>
@@ -108,38 +95,12 @@
 
                   <div class="form-group row" style="margin-top: 3%">
                     <div class="col-10 mx-auto">
-                      <input
-                        class="form-control"
-                        id="state"
-                        aria-describedby="emailHelp"
-                        placeholder="State"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row" style="margin-top: 3%">
-                    <div class="col-10 mx-auto">
-                      <input
-                        class="form-control"
-                        id="pinCode"
-                        aria-describedby="emailHelp"
-                        placeholder="Pin Code"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group row" style="margin-top: 3%">
-                    <div class="col-10 mx-auto">
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="phno"
-                        aria-describedby="emailHelp"
-                        placeholder="Phone Number"
-                        required
-                      />
+                      <select class="form-control" id="">
+                        <option value="-1" selected disabled>Seat Type</option>
+                        <option value="0">Business</option>
+                        <option value="1">Economy</option>
+                        <option value="2">Premium Economy</option>
+                      </select>
                     </div>
                   </div>
 
@@ -152,7 +113,7 @@
                         type="submit"
                         class="btn btn-success btn-block w-100"
                       >
-                        SIGN UP
+                        SEARCH FLIGHTS
                       </button>
                     </div>
                   </div>
@@ -165,7 +126,7 @@
 
       <div
         class="cyan-800 background1"
-        style="width: 100%; height: 120vh"
+        style="width: 100%; height: 100vh"
       ></div>
     </div>
   </body>

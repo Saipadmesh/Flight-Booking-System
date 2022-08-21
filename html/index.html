@@ -1,13 +1,23 @@
+<html>
 <head>
     <meta charset="UTF-8">
     <link rel= "stylesheet" type= "text/css" href= "styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script language="JavaScript" type="text/javascript">
+      $(document).ready(function(){
+        $('.carousel').carousel({
+          interval: 000
+        })
+      });    
+    </script>  
     <title>Home Page</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
+  <nav class="navbar navbar-expand-sm navbar-light shadow-sm bg-light">
     <div class="container"> 
         <a class="navbar-brand d-flex align-items-center" href="#">
             <span class="ml-3 font-weight-bold">bookMytickets</span>
@@ -19,106 +29,141 @@
     
         <div class="collapse navbar-collapse" id="navbar4">
             <ul class="navbar-nav mr-auto pl-lg-4">
-                <li class="nav-item px-lg-2 active"> <a class="nav-link" href="#"> <span class="d-inline-block d-lg-none icon-width"></span>Home</a> </li>
-                <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"></span>Book Tickets</a> </li>
-                <li class="nav-item px-lg-2"> <a class="nav-link" href="#"><span class="d-inline-block d-lg-none icon-width"><i class="far fa-envelope"></i></span>Contact Us</a> </li>
+                <li class="nav-item px-lg-2"> <a class="nav-link" href="select_travel_date.html"><span class="d-inline-block icon-width"></span>Book Tickets</a> </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="login.html">Login<span class="sr-only"></a>
+              </li>    
+              <li class="nav-item">
+                <a class="nav-link" href="signUp.html">Sign Up<span class="sr-only"></a>
+              </li> 
             </ul>
         
         </div>
     </div>
     <div class="my-2 my-lg-0">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login<span class="sr-only"></a>
-              </li>    
-              <li class="nav-item">
-                <a class="nav-link" href="signUp.html">Sign Up<span class="sr-only"></a>
-              </li>  
-          </ul>
+             
+        </ul>
+    </div>
+  </nav>
+    
+    
+
+  <div id="carousel" class="carousel slide d-none  d-sm-block" data-ride="carousel" style="height: 40vh;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100 h-100 carousel_img" src="images/flight3.jpg" alt="First slide">
       </div>
-    </nav>
-    
-    
-    <!-- <div class="py-5 text-center text-white cyan-700" style="height: 50vh;">
-        <div class="container-fluid py-5">
-            <div class="row py-5">
-                <div class="mx-auto col-lg-10">
-                    <h1>You can book flights with this app now!</h1>
-                    Travel anywhere! Anytime! Book your flights to any location in India at the cheapest prices!
-                </div>
-            </div>
-        </div>
-    </div> -->
+      <div class="carousel-item">
+        <img class="d-block w-100 h-100 carousel_img" src="images/flight1.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-100 carousel_img" src="images/flight2.jpg" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100 h-100 carousel_img" src="images/flight4.jpg" alt="Third slide">
+      </div>
+    </div>
+  </div>
 
-    <!-- <div class="py-5 text-white teal-600" style="height: 100vh;">
-        <div class="container-fluid py-5">
-            <div class="row py-5">
-                <div class="mx-auto col-lg-10">
-                    <h1>You can book flights with this app now!</h1>
-                    Travel anywhere! Anytime! Book your flights to any location in India at the cheapest prices!
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="height: 50vh;">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100 carousel_img" src="flight3.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 carousel_img" src="flight1.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 carousel_img" src="flight2.jpg" alt="Third slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 carousel_img" src="flight4.jpg" alt="Third slide">
+  <div class="container-fluid landingPage" style="height: 65rem;">
+    <div class="row h-50" id="frame1">
+      <div
+        class="col-xs-12 col-lg-12 m-0 p-0 cyan-800 d-flex flex-column justify-content-center align-items-center"
+        style="color: white;"
+      >
+        <div style="padding-left: 10%; padding-right: 10%;">
+          <h5 style="font-weight: 700;font-size: 25;">
+            Travel Anywhere! Anytime!
+          </h5>
+          <article>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat laudantium a dolorum ducimus doloribus ratione voluptatem cupiditate quasi quos molestias adipisci placeat veniam aliquid dolorem, necessitatibus, neque aut rerum deleniti.
+          </artic>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid landingPage" style="height: 45rem;">
-        <div class="row h-50" id="frame1">
-          <div
-            class="col-xs-12 col-lg-12 m-0 p-0 cyan-800 d-flex flex-column justify-content-center align-items-center"
-            style="color: white;"
-          >
-            <div style="padding-left: 10%; padding-right: 10%;">
-              <h5 style="font-weight: 700;font-size: 25;">
-                Travel Anywhere! Anytime!
-              </h5>
-              <article>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat laudantium a dolorum ducimus doloribus ratione voluptatem cupiditate quasi quos molestias adipisci placeat veniam aliquid dolorem, necessitatibus, neque aut rerum deleniti.
-              </artic>
-            </div>
-          </div>
+    <div class="row h-50 teal-600 " id="frame2">
+      <div
+        class="col-xs-12 col-lg-12 m-0 p-0 d-flex flex-column justify-content-center align-items-center"
+        style="color: white;"
+      >
+        <div style="padding-left: 10%; padding-right: 10%;">
+          <h5 style="font-weight: 700;font-size: 25;">
+            We provide safe travel at affordable prices
+          </h5>
+          <article>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat laudantium a dolorum ducimus doloribus ratione voluptatem cupiditate quasi quos molestias adipisci placeat veniam aliquid dolorem, necessitatibus, neque aut rerum deleniti.
+          </article>
         </div>
+      </div>
+    
 
-        <div class="row h-50" id="frame2">
-          
-          <div
-            class="col-xs-12 col-lg-12 m-0 p-0 teal-600 d-flex flex-column justify-content-center align-items-center"
-            style="color: white;"
-          >
-          <div style="padding-left: 10%; padding-right: 10%;">
-            <h5 style="font-weight: 700;font-size: 25;">
-              We provide safe travel at affordable prices
-            </h5>
-            <article>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat laudantium a dolorum ducimus doloribus ratione voluptatem cupiditate quasi quos molestias adipisci placeat veniam aliquid dolorem, necessitatibus, neque aut rerum deleniti.
-            </artic>
+    
+      <div class="d-none d-sm-block col-sm-1">
+          <!-- <div class="card"> <img src="images/goa.jpg" class="card-img-top">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between"> <span class="font-weight-bold">Bahamas</span> <span > ₹15,500</span> </div>
+                  <p class="h6 card-text mb-1 mt-1">Enjoy the sunny beaches of Bahamas</p>
+              </div>
+          </div> -->
+      </div>
+
+      <div class="d-none d-sm-block col-sm-2 index-card-text">
+        <div class="card"> <img src="images/goa.jpg" class="card-img-top">
+            <div class="card-body">
+                <div class="d-flex justify-content-center"> Goa </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-none d-sm-block col-sm-2 index-card-text">
+          <div class="card"> <img src="images/western-ghats.jpg" class="card-img-top">
+              <div class="card-body">
+                  <div class="d-flex justify-content-center"> <span class="font-weight-bold">Himalayas</span>  </div>
+              </div>
           </div>
-          </div>
+      </div>
+      
+      <div class="d-none d-sm-block col-sm-2 index-card-text-1">
+        <div class="card"> <img src="images/kanyakumari.jpg" class="card-img-top">
+            <div class="card-body">
+                <div class="d-flex justify-content-center"> <span class="font-weight-bold">Kanyakumari</span>  </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-none d-sm-block col-sm-2 index-card-text">
+        <div class="card"> <img src="images/ooty.jpg" class="card-img-top">
+            <div class="card-body">
+                <div class="d-flex justify-content-center"> <span class="font-weight-bold">Ooty</span>  </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-none d-sm-block col-sm-2 index-card-text">
+        <div class="card"> <img src="images/agra.jpg" class="card-img-top">
+            <div class="card-body">
+                <div class="d-flex justify-content-center"> <span class="font-weight-bold">Agra</span>  </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="d-none d-sm-block col-sm-1">
+      </div>
     </div>
-
+  </div>
+  
+</div>
         
-    <footer class="bg-light text-center text-lg-start w-100 m-0">
-        <div
-          class="text-center p-3"
-          style="background-color: rgba(0, 0, 0, 0.2);"
-        >
-          Done By Saipadmesh
-        </div>
-    </footer>
+  <footer class="page-footer bg-light text-center text-lg-start w-100 m-0 p-0">
+    <div
+      class="text-center p-3"
+      style="background-color: rgba(0, 0, 0, 0.2);"
+    >
+      Done By Saipadmesh
+    </div>
+  </footer>
 </body>
+
+</html>
