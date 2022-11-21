@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Modify Status</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  </head>
+  <body ng-app="addFlight" ng-controller="addFlightController">
+    <div style="height: 100vh">
+      <div class="container">
+        <div class="row" style="height: 100%; z-index: 1">
+          <div class="col-lg-3"></div>
+          <div
+            class="col-sm-12 col-lg-6 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div
+              class="landingPage"
+              style="
+                height: 100%;
+                width: 90%;
+                background-color: white;
+                margin-top: 2.5%;
+              "
+            >
+              <hgroup>
+                <div
+                  class="newTitle1"
+                  style="text-align: center; margin-top: 2%; font-size: 50px"
+                >
+                  Modify Status
+                </div>
+                <div
+                  style="text-align: center; font-size: 24; font-weight: 300"
+                >
+                  Only for managers
+                </div>
+              </hgroup>
+              <form autocomplete="off" onSubmit="">
+                <div class="d-flex flex-column">
+                  <div class="form-group row" style="margin-top: 10%">
+                    <div class="col-10 mx-auto">
+                      <select class="form-control" id="" ng-model="flight.id">
+                        <option value="-1" selected disabled>Flight ID</option>
+                        <option
+                          ng-repeat="fid in flight.idList"
+                          value="{{fid}}"
+                        >
+                          {{fid}}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="margin-top: 3%">
+                    <div class="col-10 mx-auto">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="from"
+                        ng-model="flight.from"
+                        placeholder="From"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="margin-top: 3%">
+                    <div class="col-10 mx-auto">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="to"
+                        ng-model="flight.to"
+                        placeholder="To"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="margin-top: 3%">
+                    <div class="col-10 mx-auto">
+                      <input
+                        id="dot"
+                        ng-model="flight.dot"
+                        class="form-control"
+                        type="date"
+                        placeholder="Date Of Travel"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="margin-top: 3%">
+                    <div class="col-10 mx-auto">
+                      <input
+                        id="stime"
+                        ng-model="flight.stime"
+                        class="form-control"
+                        type="time"
+                        placeholder="Starting Time"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group row" style="margin-top: 3%">
+                    <div class="col-10 mx-auto">
+                      <input
+                        id="etime"
+                        ng-model="flight.etime"
+                        class="form-control"
+                        type="time"
+                        placeholder="Reaching Time"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="row" style="margin-top: 7%; margin-bottom: 10%">
+                    <div class="col-md-10 col-sm-10 col-xs-10 mx-auto">
+                      <button
+                        ng-click="flight.save()"
+                        class="btn btn-success btn-block mx-auto"
+                        style="width: 49%"
+                      >
+                        MODIFY
+                      </button>
+
+                      <button
+                        ng-click="flight.delete()"
+                        class="btn btn-danger btn-block float-right"
+                        style="width: 49%"
+                      >
+                        DELETE
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="cyan-800 background1"
+        style="width: 100%; height: 115vh"
+      ></div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+  ></script>
+
+  <script>
+    var addFlight = angular.module("addFlight", []);
+    addFlight.config([
+      "$httpProvider",
+      function ($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common["X-Requested-With"];
+      },
+    ]);
+
+    addFlight.controller(
+      "addFlightController",
+      function ($scope, $http, $templateCache) {
+        $scope.flight = {
+          id: "-1",
+          idList: [],
+          from: "",
+          to: "",
+          dot: "",
+          stime: "",
+          etime: "",
+          num_eco: null,
+          num_pre_eco: null,
+          num_business: null,
+          toSend: {},
+          old_flight: {},
+
+          save: function () {
+            var method = "POST";
+            var inserturl = "http://localhost:1212/modifyStatus";
+            var flightObj = $scope.flight;
+            console.log(flightObj.id);
+            if (flightObj.id == "-1") {
+              alert("Enter valid ID");
+              return;
+            }
+
+            function convertTime(time) {
+              var hours = time.getHours().toString();
+              var minutes = time.getMinutes().toString();
+              if (minutes == "0") {
+                minutes = minutes + "0";
+              }
+              if (hours == "0") {
+                hours = hours + "0";
+              }
+
+              return hours + ":" + minutes;
+            }
+
+            function convertDate() {
+              var dot = flightObj.dot;
+              var dot_loc = "";
+              dot_loc =
+                dot_loc +
+                dot.getDate().toString() +
+                "." +
+                (dot.getMonth() + 1).toString() +
+                "." +
+                dot.getFullYear().toString();
+              return dot_loc;
+            }
+            var url = "http://localhost:1212/getflightByID";
+
+            $http
+              .get(url, {
+                params: {
+                  id: flightObj.id,
+                },
+              })
+              .then(function (response) {
+                console.log("Old Flight");
+                // console.log(response.data);
+                flightObj.old_flight = response.data;
+                console.log(flightObj.old_flight);
+                console.log("---------------");
+                if (flightObj.dot) {
+                  flightObj.toSend.dot = convertDate();
+                }
+                // console.log(flightObj.stime);
+                if (
+                  flightObj.stime &&
+                  flightObj.etime &&
+                  convertTime(flightObj.stime).localeCompare(
+                    convertTime(flightObj.etime)
+                  ) != -1
+                ) {
+                  //   console.log("IF0");
+                  alert("Starting time greater than Reaching time");
+                  return;
+                }
+                if (flightObj.stime) {
+                  flightObj.toSend.stime = convertTime(flightObj.stime);
+                  //   console.log("IF1");
+
+                  //   console.log(flightObj.toSend.stime);
+                  //   console.log(typeof flightObj.old_flight.etime);
+                  //   console.log();
+
+                  if (
+                    !flightObj.etime &&
+                    convertTime(flightObj.stime).localeCompare(
+                      flightObj.old_flight.etime
+                    ) != -1
+                  ) {
+                    // console.log("IF1.1");
+                    alert("Starting time greater than Reaching time");
+                    return;
+                  }
+                }
+                if (flightObj.etime) {
+                  flightObj.toSend.etime = convertTime(flightObj.etime);
+                  //   console.log(flightObj.old_flight.stime);
+                  //   console.log("IF2");
+
+                  if (
+                    !flightObj.stime &&
+                    flightObj.old_flight.stime.localeCompare(
+                      convertTime(flightObj.etime)
+                    ) != -1
+                  ) {
+                    console.log("IF2.1");
+
+                    alert("Starting time greater than Reaching time");
+                    return;
+                  }
+                }
+
+                if (flightObj.from) {
+                  flightObj.toSend.from = flightObj.from;
+                }
+                if (flightObj.to) {
+                  flightObj.toSend.to = flightObj.to;
+                }
+                var toSendString = JSON.stringify(flightObj.toSend);
+                if (toSendString == "{}") {
+                  alert("Enter valid data");
+                  return;
+                }
+                flightObj.toSend.id = flightObj.id;
+                toSendString = JSON.stringify(flightObj.toSend);
+                console.log("Data is valid");
+                $http.post(inserturl, toSendString).then(function (response) {
+                  //   console.log(response);
+                  if (response.status == 200) {
+                    console.log("success");
+                    alert("Details modified successfully");
+                    // flightObj.listFlights();
+                  } else {
+                    console.log("error");
+                    alert("Error while saving");
+                  }
+                });
+              });
+          },
+
+          delete: function () {
+            var method = "POST";
+            var inserturl = "http://localhost:1212/deleteflightByID";
+            var flightObj = $scope.flight;
+            if (flightObj.id == "-1") {
+              alert("Enter valid ID");
+              return;
+            }
+
+            var toSendString = JSON.stringify({ id: flightObj.id });
+            $http.post(inserturl, toSendString).then(function (response) {
+              //   console.log(response);
+              if (response.status == 200) {
+                console.log("success");
+                alert("Flight details deleted successfully");
+                // flightObj.listFlights();
+              } else {
+                console.log("error");
+                alert("Error while saving");
+              }
+            });
+          },
+          listFlights: function () {
+            var url = "http://localhost:1212/getflights";
+            $http.get(url).then(function (response) {
+              console.log(response.data);
+            });
+          },
+
+          listIDs: function () {
+            var url = "http://localhost:1212/getflightIDs";
+            console.log("Inside listing function");
+            $http.get(url).then(function (response) {
+              var ids = response.data;
+              console.log(ids);
+              $scope.flight.idList = ids;
+            });
+          },
+        };
+        $scope.flight.listIDs();
+      }
+    );
+  </script>
+</html>

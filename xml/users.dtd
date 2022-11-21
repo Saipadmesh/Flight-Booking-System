@@ -1,0 +1,8 @@
+<!ELEMENT users (user+)>
+<!ELEMENT user (username,pwd, name, gender, dob, phno)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT pwd (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT gender (#PCDATA)>
+<!ELEMENT dob (#PCDATA)>
+<!ELEMENT phno (#PCDATA)>

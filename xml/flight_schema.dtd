@@ -1,0 +1,13 @@
+<!ELEMENT flights (flight+)>
+<!ELEMENT flight (name,from,to,no_business,no_eco,no_preEco,total_seats,status,start_time,end_time)>
+<!ATTLIST flight id ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT no_business (#PCDATA)>
+<!ELEMENT no_eco (#PCDATA)>
+<!ELEMENT no_preEco (#PCDATA)>
+<!ELEMENT total_seats (#PCDATA)>
+<!ELEMENT status (#PCDATA)>
+<!ELEMENT start_time (#PCDATA)>
+<!ELEMENT end_time (#PCDATA)>

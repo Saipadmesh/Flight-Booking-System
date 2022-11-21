@@ -1,0 +1,7 @@
+<!ELEMENT ratings (review+)>
+<!ELEMENT review (flight_id, username,rating,feedback)>
+<!ATTLIST review id ID #REQUIRED>
+<!ELEMENT flight_id (#PCDATA)>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT feedback (#PCDATA)>

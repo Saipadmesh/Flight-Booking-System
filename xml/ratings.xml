@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<ratings xmlns="rating_schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="rating_schema ratings_schema.xsd">
+    <id>1</id>
+    <username>Sai</username>
+    <flight-id>MX-579</flight-id>
+    <rating>5</rating>
+    <feedback>This was good</feedback>
+</ratings>

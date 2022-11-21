@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="flight">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="flight-id">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[A-Z][A-Z](-)[0-9][0-9][0-9]" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:whiteSpace value="preserve" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="from">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[A-Z]([a-zA-Z])*" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="to">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[A-Z]([a-zA-Z])*" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+
+                <xs:element name="no_eco" type="xs:int" />
+                <xs:element name="no_preEco" type="xs:int" />
+                <xs:element name="no_business" type="xs:int" />
+                <xs:element name="no_total" type="xs:int" />
+
+                <xs:element name="status">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="onTime|delayed" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="startTime" type="xs:time" />
+                <xs:element name="endTime" type="xs:time" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

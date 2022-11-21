@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE flights SYSTEM "./flight_schema.dtd">
+<flights>
+    <flight id="IR-579">
+        <name>Indigo</name>
+        <from>Coimbatore</from>
+        <to>Bangalore</to>
+        <no_business>25</no_business>
+        <no_eco>65</no_eco>
+        <no_preEco>50</no_preEco>
+        <total_seats>140</total_seats>
+        <status>Available</status>
+        <start_time>12:00</start_time>
+        <end_time>01:30</end_time>
+    </flight>
+
+    <flight id="SP-619">
+        <name>Spicejet</name>
+        <from>Coimbatore</from>
+        <to>Bangalore</to>
+        <no_business>25</no_business>
+        <no_eco>65</no_eco>
+        <no_preEco>50</no_preEco>
+        <total_seats>140</total_seats>
+        <status>Available</status>
+        <start_time>08:00</start_time>
+        <end_time>09:30</end_time>
+    </flight>
+</flights>
+
+
+
+    

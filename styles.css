@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Oswald:wght@700&display=swap");
 
+.navbar-collapse.collapse.in {
+  display: inline-block!important;
+}
 .cyan-700 {
   background-color: #087990;
 }
@@ -60,8 +63,18 @@
 
 .newTitle1 {
   font-family: "Montserrat", sans-serif;
-  font-size: 64px;
+  font-size: clamp(2em,6vw,4em);
   font-weight: 600;
+}
+
+.subheading{
+  font-size: clamp(0.8em,1.2vw,3em);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 8vw;
+  object-fit: cover;
 }
 
 .background1 {
@@ -79,11 +92,22 @@
 
 input[type="date"]:before {
   content: attr(placeholder) !important;
-  color: #aaa;
+  color: rgb(114, 113, 113);
   margin-right: 0.5em;
 }
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
+  content: "";
+}
+
+
+input[type="time"]:before {
+  content: attr(placeholder) !important;
+  color: rgb(114, 113, 113);
+  margin-right: 0.5em;
+}
+input[type="time"]:focus:before,
+input[type="time"]:valid:before {
   content: "";
 }
 /*
@@ -127,16 +151,52 @@ font-family: 'Oswald', sans-serif;
 
 .rating:hover > input:checked ~ label:before{ opacity: 0.8; color: rgb(255, 183, 0);}
 
-h1, p{ 
-    text-align: center;
-    
+h1, p{   
+  text-align: center;
 }
 
 h1{
     margin-top:150px;
 }
+
 p{ font-size: 1.2rem;}
 @media only screen and (max-width: 600px) {
   h1{font-size: 14px;}
   p{font-size: 12px;}
+}
+
+.carousel_img{
+  height: 50vh;
+  object-fit: cover;
+}
+
+.index-card-text{
+  font-size: clamp(0.7em,1.2vw,2em);
+}
+.index-card-text-1{
+  font-size: clamp(0.6em,1.2vw,2em);
+}
+
+.flight-card-text{
+  font-size: clamp(0.9em,2.5vw,1.4em);
+}
+
+.flight-card-text-1{
+  font-size: clamp(0.9em,2.5vw,1.4em);
+  font-weight: 600;
+}
+.flight-card-btn{
+  font-size: clamp(0.75em,1.8vw,1em);
+}
+.flight-time{
+  font-weight: 600;
+  font-size: clamp(0.9em,2vw,1.4em);
+}
+.flight-dash{
+  font-size: clamp(0.75em,2vw,1.4em);
+}
+html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }

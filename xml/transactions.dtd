@@ -1,0 +1,7 @@
+<!ELEMENT transactions (transaction+)>
+<!ELEMENT transactions (username,accno, amount)>
+<!ATTLIST transactions id ID #REQUIRED>
+<!ELEMENT username (#PCDATA)>
+<!ELEMENT accno (#PCDATA)>
+<!ELEMENT amount (#PCDATA)>
+<!ELEMENT flight-id (#PCDATA)>
