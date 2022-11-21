@@ -10,8 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: true }));
 
 var databaseUrl = "flightDB";
+const uri =
+  "mongodb+srv://saipadmesh:root@cluster0.beqwp.mongodb.net/flightDB?retryWrites=true&w=majority";
 var collections = ["flights"];
-var db = mongojs(databaseUrl, collections);
+var db = mongojs(uri, collections);
 
 app.get("/api", function (req, res) {
   res.send("Our Sample API is up...");
